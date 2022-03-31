@@ -1,0 +1,28 @@
+# A few simple aliases to help workflow problems that sometimes come up when working in terminal
+# Adding to the list as I find new ones that I like. 
+# These can be used for bash and zsh. Though the apt updater needs to be changed slightly for zsh.
+# To correctly function, bash aliases go into ~/.bash_aliases by default (need to make the file) and zsh aliases can go into ~/.zshrc
+
+# apt-updater
+# updates, upgrades, cleans up, and reboots
+# bash
+function apt-updater {
+	apt-get update &&
+	apt-get dist-upgrade -Vy &&
+	apt-get autoremove -y &&
+	apt-get autoclean &&
+	apt-get clean &&
+	reboot
+	}
+
+# zsh
+alias apt-updater='apt-get update && apt-get dist-upgrade -Vy && apt-get autoremove -y && apt-get autoclean && apt-get clean && reboot'
+
+# ls aliases
+alias lla='ls -la'
+
+# reloader
+# for after you modify your aliases or customize your terminal's behavior
+alias reload='source ~/.zshrc'
+alias reload='source ~/.bashrc'
+
